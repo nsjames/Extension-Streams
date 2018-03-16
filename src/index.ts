@@ -1,7 +1,2 @@
-import EncryptedStream from './EncryptedStream'
-import LocalStream from './LocalStream'
-
-module.exports = {
-	LocalStream,
-	EncryptedStream
-};
+export {EncryptedStream} from './EncryptedStream'
+export {LocalStream} from './LocalStream'

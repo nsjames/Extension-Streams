@@ -1,10 +1,11 @@
 {
   "name": "extension-streams",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "Streams for chrome extensions",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register src/**/*.spec.ts --exit"
+    "test": "mocha -r ts-node/register src/**/*.spec.ts --exit",
+    "compile": "tsc"
   },
   "author": "nsjames",
   "repository": {
@@ -13,20 +14,20 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/chai": "^4.1.1",
+    "@types/chai": "^4.1.2",
     "@types/chrome": "0.0.57",
-    "@types/mocha": "^2.2.46",
-    "@types/node": "^8.5.5",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^8.9.5",
     "chai": "^4.1.2",
     "jsdom": "11.5.1",
     "jsdom-global": "3.0.2",
-    "mocha": "^5.0.0",
-    "ts-loader": "^3.2.0",
+    "mocha": "^5.0.4",
+    "ts-loader": "^3.5.0",
     "ts-node": "^4.1.0",
-    "typescript": "^2.6.2",
-    "webpack": "^3.10.0"
+    "typescript": "^2.7.2",
+    "webpack": "^3.11.0"
   },
   "dependencies": {
-    "aes-oop": "^1.0.3"
+    "aes-oop": "^1.0.4"
   }
 }
