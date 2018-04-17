@@ -1,6 +1,6 @@
 {
   "name": "extension-streams",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Streams for chrome extensions",
   "main": "./dist/index.js",
   "scripts": {

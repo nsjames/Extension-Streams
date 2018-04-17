@@ -1,4 +1,5 @@
 import EncryptedStream from './EncryptedStream';
+import AES from 'aes-oop';
 import { expect, assert } from 'chai';
 import 'mocha';
 const cleanup = require('jsdom-global')();

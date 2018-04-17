@@ -30,7 +30,7 @@ export class EncryptedStream {
 	listenWith(func:any){
 		document.addEventListener(this.eventName, (event:any) => {
 			if(!this.synced) return false;
-			let msg = event.detail;
+			let msg = JSON.parse(event.detail);
 			msg = (this.synced || typeof msg === 'string') ? AES.decrypt(msg, this.key) : msg;
 			func(msg);
 		});
@@ -48,7 +48,7 @@ export class EncryptedStream {
 		if(typeof data !== 'object') throw new Error("Payloads must be objects");
 		addSender();
 		encryptIfSynced();
-		this.dispatch(data, to);
+		this.dispatch(JSON.stringify(data), to);
 	}
 
 	/***
@@ -73,9 +73,10 @@ export class EncryptedStream {
 	 */
 	private listenForSync(){
 		document.addEventListener(this.eventName, (event:any) => {
-			let msg = event.detail;
-			if(msg.hasOwnProperty('type') && msg.type === 'sync') { this.ackSync(msg); }
-			if(msg.hasOwnProperty('type') && msg.type === 'synced') { this.synced = true; }
+			let msg = JSON.parse(event.detail);
+			if(!msg.hasOwnProperty('type')) return false;
+			if(msg.type === 'sync') this.ackSync(msg);
+			if(msg.type === 'synced') this.synced = true;
 		});
 	}
 
